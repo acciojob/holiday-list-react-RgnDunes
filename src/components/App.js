@@ -47,7 +47,7 @@ const App = () => {
     <div id="main">
       <ol>
         {getCities().map((city, idx) => (
-          <li key={city + idx}>{city}</li>
+          <li key={city}>{city}</li>
         ))}
       </ol>
       {/* Do not remove the main div */}
