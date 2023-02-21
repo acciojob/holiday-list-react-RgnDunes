@@ -40,7 +40,6 @@ const App = () => {
     temp = cityList.filter((el) => el.country === "India");
     setCities([...temp]);
   }, []);
-  console.log("cities", cities);
 
   return (
     <div>
