@@ -36,9 +36,9 @@ const App = () => {
   return (
     <div id="main">
       <ol>
-        {cityList.filter((cityObj) => {
+        {cityList.filter((cityObj, idx) => {
           if (cityObj.country === "India")
-            return <li key={cityObj.name}>{cityObj.name}</li>;
+            return <li key={cityObj.name + idx}>{cityObj.name}</li>;
         })}
       </ol>
       {/* Do not remove the main div */}
