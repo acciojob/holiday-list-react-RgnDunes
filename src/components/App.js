@@ -33,26 +33,24 @@ const App = () => {
     { name: "Tirupati", country: "India" },
   ];
 
-  const getCities = () => {
-    const newCityList = cityList
-      .filter((cityObj) => {
-        if (cityObj.country === "India") return cityObj.name;
-      })
-      .map((city, idx) => city.name);
+  const [cities, setCities] = useState([]);
 
-    return newCityList;
-  };
+  useEffect(() => {
+    let temp = [];
+    temp = cityList.filter((el) => el.country === "India");
+    setCities([...temp]);
+  }, []);
+  console.log("cities", cities);
 
   return (
-    <div id="main">
-      <ol>
-        {getCities().map((city, i) => (
+    <div>
+      <ol id="location">
+        {cities.map((el, i) => (
           <li id={`location${i + 1}`} key={`location${i + 1}`}>
-            {city}
+            {el.name}
           </li>
         ))}
       </ol>
-      {/* Do not remove the main div */}
     </div>
   );
 };
