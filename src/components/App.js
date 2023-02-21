@@ -33,13 +33,22 @@ const App = () => {
     { name: "Tirupati", country: "India" },
   ];
 
+  const getCities = () => {
+    const newCityList = cityList
+      .filter((cityObj) => {
+        if (cityObj.country === "India") return cityObj.name;
+      })
+      .map((city, idx) => city.name);
+
+    return newCityList;
+  };
+
   return (
     <div id="main">
       <ol>
-        {cityList.filter((cityObj, idx) => {
-          if (cityObj.country === "India")
-            return <li key={cityObj.name + idx}>{cityObj.name}</li>;
-        })}
+        {getCities().map((city, idx) => (
+          <li key={city + idx}>{city}</li>
+        ))}
       </ol>
       {/* Do not remove the main div */}
     </div>
